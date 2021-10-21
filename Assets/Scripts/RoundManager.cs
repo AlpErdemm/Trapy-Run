@@ -12,5 +12,6 @@ public class RoundManager : MonoBehaviour
     public void StartRound()
     {
         RoundStarted.Invoke();
+        isRoundStarted = true;
     }
 }

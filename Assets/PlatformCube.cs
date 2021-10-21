@@ -16,7 +16,7 @@ public class PlatformCube : MonoBehaviour
 
     IEnumerator Fall()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         Material mat = GetComponent<MeshRenderer>().material;
         mat.color = new Color(1f, 0f, 0f);

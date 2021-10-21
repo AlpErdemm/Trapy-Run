@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed;
+    private bool isRunning = false;
     void Awake()
     {
         RoundManager.RoundStarted += OnRoundStart;
@@ -12,13 +13,14 @@ public class PlayerController : MonoBehaviour
 
     void OnRoundStart()
     {
-        Debug.Log("Yo!");
         GetComponent<Animator>().SetBool("isRunning", true);
+        isRunning = true;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if(isRunning)
+            transform.parent.Translate(new Vector3(0, 0, speed));
     }
 }
