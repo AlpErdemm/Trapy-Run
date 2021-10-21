@@ -1,18 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RoundManager : MonoBehaviour
 {
     public bool isRoundStarted = false;
-    void Start()
-    {
-        
-    }
+    public static UnityAction RoundStarted;
+    
 
-    // Update is called once per frame
-    void Update()
+    public void StartRound()
     {
-        
+        RoundStarted.Invoke();
     }
 }

@@ -21,5 +21,7 @@ public class PlatformCube : MonoBehaviour
         Material mat = GetComponent<MeshRenderer>().material;
         mat.color = new Color(1f, 0f, 0f);
         mat.DOColor(new Color(1f, 1f, 1f), 0.5f);
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
     }
 }
