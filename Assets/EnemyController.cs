@@ -27,9 +27,12 @@ public class EnemyController : MonoBehaviour
         }
         else if (isJumping)
         {
-            Debug.Log("Jump");
-            transform.LookAt(player.transform);
             transform.parent.Translate((player.transform.position - transform.position) * 0.1f);
+        }
+        else
+        {
+            //Preparing to jump
+            transform.LookAt(player.transform);
         }
     }
 
@@ -40,7 +43,7 @@ public class EnemyController : MonoBehaviour
 
         if (!alreadyJumped)
         {
-            if (Vector3.Distance(player.transform.position, transform.position) < 3f || (transform.position.z > player.transform.position.z && transform.position.y >= player.transform.position.y))
+            if ((transform.position.z > player.transform.position.z && transform.position.y + 1f >= player.transform.position.y))
             {
                 JumpOnPlayer();
                 alreadyJumped = true;

@@ -29,4 +29,9 @@ public class PlayerController : MonoBehaviour
         isRunning = false;
         GetComponent<Animator>().SetBool("isFalling", true);
     }
+
+    public void ObstacleCollision()
+    {
+        Fall();
+    }
 }
