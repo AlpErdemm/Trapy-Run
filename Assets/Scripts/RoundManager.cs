@@ -7,6 +7,7 @@ public class RoundManager : MonoBehaviour
 {
     public bool isRoundStarted = false;
     public static UnityAction RoundStarted;
+    public static UnityAction PlayerDied;
     
 
     public void StartRound()

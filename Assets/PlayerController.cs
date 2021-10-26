@@ -23,4 +23,10 @@ public class PlayerController : MonoBehaviour
         if(isRunning)
             transform.parent.Translate(new Vector3(0, 0, speed));
     }
+
+    public void Fall()
+    {
+        isRunning = false;
+        GetComponent<Animator>().SetBool("isFalling", true);
+    }
 }
