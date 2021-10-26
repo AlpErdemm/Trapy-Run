@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using DG.Tweening;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +8,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         RoundManager.RoundStarted += OnRoundStart;
+        RoundManager.FinishCrossed += OnFinishCross;
     }
 
     void OnRoundStart()
@@ -33,5 +33,20 @@ public class PlayerController : MonoBehaviour
     public void ObstacleCollision()
     {
         Fall();
+    }
+
+    private void OnFinishCross()
+    {
+        GameObject heliObject = FindObjectOfType<Heli>().gameObject;
+        isRunning = false;
+        transform.DOMove(heliObject.transform.position, 4f).OnComplete(() => {
+            GetComponent<Animator>().SetBool("isSitting", true);
+            transform.DOMove(transform.position + new Vector3(1f, 2.3f, 0f), 2f);
+            transform.DORotate(new Vector3(0f, -90f, 0f), 2f).OnComplete(() => {
+                transform.parent = heliObject.transform;
+                heliObject.GetComponent<Heli>().Fly();
+            });
+        });
+       
     }
 }

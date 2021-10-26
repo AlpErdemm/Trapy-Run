@@ -11,7 +11,7 @@ public class Heli : MonoBehaviour
 
     private void Start()
     {
-        Fly();
+        //Fly();
     }
     public void Fly()
     {

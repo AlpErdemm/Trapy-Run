@@ -14,6 +14,7 @@ public class Spawner : MonoBehaviour
     {
         RoundManager.RoundStarted += OnRoundStart;
         RoundManager.PlayerDied += OnPlayerDie;
+        RoundManager.FinishCrossed += OnFinishCross;
     }
 
     void OnRoundStart()
@@ -38,6 +39,14 @@ public class Spawner : MonoBehaviour
     private void OnPlayerDie()
     {
         isSpawning = false;
+    }
+
+    private void OnFinishCross()
+    {
+        isSpawning = false;
+        EnemyController [] enemies = FindObjectsOfType<EnemyController>();
+        foreach (EnemyController enemy in enemies)
+            enemy.Stop();
     }
 
 }

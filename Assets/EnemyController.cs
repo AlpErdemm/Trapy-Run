@@ -71,4 +71,12 @@ public class EnemyController : MonoBehaviour
         isJumping = false;
     }
 
+    public void Stop()
+    {
+        isJumping = false;
+        isRunning = false;
+        StopAllCoroutines();
+        GetComponent<Animator>().SetBool("isRunning", false);
+    }
+
 }
