@@ -26,7 +26,6 @@ public class Spawner : MonoBehaviour
     {
         if (isSpawning && Time.time > lastSpawned)
         {
-            Debug.Log(lastSpawned);
             float positionX = Random.Range(-5f, 5f);
             float positionZ = FindObjectOfType<PlayerController>().transform.parent.position.z - 20f;
 

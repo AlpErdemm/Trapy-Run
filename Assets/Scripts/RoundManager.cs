@@ -16,4 +16,19 @@ public class RoundManager : MonoBehaviour
         RoundStarted.Invoke();
         isRoundStarted = true;
     }
+    public void EndRound()
+    {
+        System.Delegate[] delegates = RoundStarted.GetInvocationList();
+        foreach (System.Delegate del in delegates)
+            RoundStarted -= (del as UnityAction);
+
+        System.Delegate[] delegates2 = PlayerDied.GetInvocationList();
+        foreach (System.Delegate del in delegates2)
+            PlayerDied -= (del as UnityAction);
+
+        System.Delegate[] delegates3 = FinishCrossed.GetInvocationList();
+        foreach (System.Delegate del in delegates3)
+            FinishCrossed -= (del as UnityAction);
+    }
+
 }

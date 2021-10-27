@@ -39,14 +39,13 @@ public class PlayerController : MonoBehaviour
     {
         GameObject heliObject = FindObjectOfType<Heli>().gameObject;
         isRunning = false;
-        transform.DOMove(heliObject.transform.position, 4f).OnComplete(() => {
+        transform.DOMove(heliObject.transform.position, 3f).SetEase(Ease.InFlash).OnComplete(() => {
             GetComponent<Animator>().SetBool("isSitting", true);
-            transform.DOMove(transform.position + new Vector3(1f, 2.3f, 0f), 2f);
+            transform.DOMove(transform.position + new Vector3(1f, 2f, 0f), 2f);
             transform.DORotate(new Vector3(0f, -90f, 0f), 2f).OnComplete(() => {
                 transform.parent = heliObject.transform;
                 heliObject.GetComponent<Heli>().Fly();
             });
-        });
-       
+        });       
     }
 }

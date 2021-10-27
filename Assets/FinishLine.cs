@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
+    public Cinemachine.CinemachineVirtualCamera first, second;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            second.Priority = first.Priority + 1;
             RoundManager.FinishCrossed.Invoke();
         }
     }
