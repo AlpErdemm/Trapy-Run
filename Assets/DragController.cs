@@ -14,7 +14,7 @@ public class DragController : MonoBehaviour, IDragHandler
     {
         if (dragEnabled)
         {
-            float positionDiff = (eventData.position.x - 540) / 540 * 30f;
+            float positionDiff = (eventData.position.x - 540) / 540 * 35f;
             FindObjectOfType<PlayerController>().transform.parent.GetComponent<Rigidbody>().rotation = Quaternion.Euler(new Vector3(0f, positionDiff, 0f));
         }
     }

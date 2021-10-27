@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
         isRunning = false;
         GetComponent<Animator>().SetBool("isFalling", true);
+        FindObjectOfType<CanvasController>().SwitchLose();
     }
 
     public void ObstacleCollision()

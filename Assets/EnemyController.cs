@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     public bool isRunning = false;
     public bool isJumping = false;
+    public bool isFallen = false;
     private bool alreadyJumped = false;
     private GameObject player;
 
@@ -48,6 +49,14 @@ public class EnemyController : MonoBehaviour
                 JumpOnPlayer();
                 alreadyJumped = true;
             }
+        }
+
+        if(transform.position.y < 0.4f && !isFallen)
+        {
+            
+            alreadyJumped = true;   //Don't jump while falling
+            GetComponent<Animator>().SetBool("isFalling", true);
+            isFallen = true;
         }
     }
 
