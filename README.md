@@ -5,6 +5,6 @@ Player avoids obstacles, runs in front of the enemies to make them fall. If caug
 
 Tech: Unity 3D | C#
 ------
-Gameplay gif (4MB)
+Gameplay gif (3.4MB)
 
-![](lostPanda3.gif)
+![](trapyRun.gif)
